@@ -1,12 +1,12 @@
 <?php  
 include "Connection.php";
 if(isset($_POST['sub'])){
-    $Role=$_POST['Department'];
-    $UName=$_POST['Tname'];
+    $Department=$_POST['Department'];
+    $TName=$_POST['Tname'];
     
    
 
-    $qry= "INSERT INTO `testing`(`TestName`, `DepartmentID`) VALUES ('$UName','$Role')";
+    $qry= "INSERT INTO `testing`(`TestName`, `DepartmentID`) VALUES ('$TName','$Role')";
   
     mysqli_query($conn,$qry);
 

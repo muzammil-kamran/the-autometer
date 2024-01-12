@@ -42,7 +42,7 @@ include "header.php"
 
                       <div class="form-group">
                       <label for="exampleInputEmail1">Department Name</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" name="uname">
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" name="Dname">
                     </div>
                     
                     

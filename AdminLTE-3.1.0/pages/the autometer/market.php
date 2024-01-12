@@ -34,7 +34,7 @@ include "header.php"
                     </div>
                     <!-- /.card-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="Department-action.php" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal" action="market-action.php" method="POST" enctype="multipart/form-data">
                   <div class="card-body">
                     <div class="form-group">
                       
@@ -42,7 +42,7 @@ include "header.php"
 
                       <div class="form-group">
                       <label for="exampleInputEmail1">Market Name</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Market Name" name="uname">
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Market Name" name="Mname">
                     </div>
                     
                     

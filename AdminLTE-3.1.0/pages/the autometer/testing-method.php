@@ -53,13 +53,13 @@ include "header.php"
                           }
                         
                           // Query to get options from database
-                          $sql = "SELECT  `DepartmentsName` FROM `departments`";
+                          $sql = "SELECT `DepartmentsID`, `DepartmentsName` FROM `departments`";
                           $result = $conn->query($sql);
                         
                           // Generate dropdown options
                           if ($result->num_rows > 0) {
                               while ($row = $result->fetch_assoc()) {
-                                  $id = $row["id"];
+                                  $id = $row["DepartmentsID"];
                                   $optionName = $row["DepartmentsName"];
                                   echo "<option value='$id'>$optionName</option>";
                               }

@@ -2,6 +2,24 @@
 include "header.php"
 
 ?>
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>THE AUTOMETER FORM</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <li class="breadcrumb-item active">Testing Form</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
 <div class="row">
           <div class="col-12">
             <div class="card">
@@ -46,7 +64,7 @@ include "header.php"
                                 while($row = mysqli_fetch_assoc($result)){?>
 
 
-                            <td scope="row"><?PHP echo $row['UserID`']?>  </td>
+                            <td scope="row"><?PHP echo $row['UserID']?>  </td>
                             <td><?PHP echo $row['UserName']?></td>
                             <td><?PHP echo $row['UserContact']?></td>
                             <td><?PHP echo $row['UserEmail']?></td>
@@ -54,16 +72,16 @@ include "header.php"
                             <td><?PHP echo $row['UserImage']?></td>
                             <td><?PHP echo $row['RoleID']?></td>
                             <td>
-                                    <a href="update.php?updid=<?PHP echo $row['userID']?>">
-                                    <button type="button" class="btn btn-success btn-fw">Update</button>
-                                    </a>
-
-                                    <a href="delete.php?dldid=<?PHP echo $row['userID']?>">
-                                    <button type="button" class="btn btn-danger btn-fw">Delete</button>
-                                    </a>
-
+                                <a href="update.php?updid=<?php echo $row['UserID']?>">
+                                <button type="button" class="tn btn-block btn-success btn-sm">Update</button>
+                                </a>
+                                                            
+                                <a href="delete.php?dldid=<?php echo $row['UserID']?>">
+                                <button type="button" class="btn btn-block btn-danger btn-sm">Delet</button>
+                    
+                                </a>
                             </td>
-                          </tr>
+                          
                           <?php
                                 }
                                 
@@ -78,3 +96,7 @@ include "header.php"
             <!-- /.card -->
           </div>
         </div>
+        </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
