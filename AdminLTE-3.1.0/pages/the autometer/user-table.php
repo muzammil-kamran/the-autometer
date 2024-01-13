@@ -82,12 +82,13 @@ include "header.php"
                                 </a>
                             </td>
                           
-                          <?php
+                          
+                      
+                    </tr>
+                    <?php
                                 }
                                 
                                 ?>
-                      
-                    </tr>
                   </tbody>
                 </table>
               </div>
