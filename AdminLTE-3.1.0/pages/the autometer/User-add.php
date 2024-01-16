@@ -72,6 +72,41 @@ include "header.php"
                     
                     </div>
                     <div class="form-group">
+                      <label for="exampleInputEmail1">Select department For User</label>
+
+
+                      <select class="form-control" id="exampleInputEmail11" name="role">
+                            <option value="" disabled selected>Select a department</option> 
+                            <?php
+                      
+                          // Database connection
+                          include "connection.php";
+
+                          // Check connection
+                          if ($conn->connect_error) {
+                              die("Connection failed: " . $conn->connect_error);
+                          }
+                        
+                          // Query to get options from database
+                          $sql = "SELECT `DepartmentsID`, `DepartmentsName` FROM `departments`";
+                          $result = $conn->query($sql);
+                        
+                          // Generate dropdown options
+                          if ($result->num_rows > 0) {
+                              while ($row = $result->fetch_assoc()) {
+                                  $id = $row["DepartmentsID"];
+                                  $optionName = $row["DepartmentsName"];
+                                  echo "<option value='$id'>$optionName</option>";
+                              }
+                          }
+                        
+                          // Close connection
+                          $conn->close();
+                          ?>
+                          </select>
+                    
+                    </div>
+                    <div class="form-group">
                       <label for="exampleInputEmail1">User Name</label>
                       <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter User Name" name="uname">
                     </div>

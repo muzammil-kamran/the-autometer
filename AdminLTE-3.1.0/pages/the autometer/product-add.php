@@ -39,6 +39,7 @@ include "header.php"
               <label for="exampleInputEmail1">Product Name</label>
               <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Product Name" name="PName">
             </div>
+
             <div class="form-group">
               <label for="exampleInputPassword1">Discription</label>
               <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Product Discription" name="Pdisc">

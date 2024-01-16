@@ -1,0 +1,45 @@
+
+Certainly! To display the current date in HTML, you can use JavaScript. Here's a simple example:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Date</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    #liveDate {
+      font-size: 24px;
+      color: navy;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Current Date:</h1>
+  <p id="liveDate"></p>
+
+  <script>
+    function updateLiveDate() {
+      var currentDate = new Date();
+      var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      var formattedDate = currentDate.toLocaleDateString('en-US', options);
+      document.getElementById('liveDate').textContent = formattedDate;
+    }
+
+    // Call the function initially
+    updateLiveDate();
+
+    // Update the date every second (1000 milliseconds)
+    setInterval(updateLiveDate, 1000);
+  </script>
+
+</body>
+</html>
