@@ -2,6 +2,24 @@
 include "header.php"
 
 ?>
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>THE AUTOMETER FORM</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <li class="breadcrumb-item active">Testing Form</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
 <div class="row">
           <div class="col-12">
             <div class="card">
@@ -29,6 +47,7 @@ include "header.php"
                       <th>TestID</th>
                       <th>UserID</th>
                       <th>Remarks</th>
+                      <th>Detail Remarks</th>
                       <th>Action</th>
             
 
@@ -45,12 +64,11 @@ include "header.php"
 
 
                             <td scope="row"><?PHP echo $row['ProductTestID']?>  </td>
-                            <td><?PHP echo $row['TestID']?></td>
-                            <td><?PHP echo $row['UserID']?></td>
-                            <td><?PHP echo $row['Remarks']?></td>
-
-
                             
+                              <td><?PHP echo $row['TestID']?></td>
+                              <td><?PHP echo $row['UserID']?></td>
+                              <td><?PHP echo $row['RemarksID']?></td>
+                              <td><?PHP echo $row['Remarks']?></td>
                            
                             <td>
                                     <a href="update.php?updid=<?PHP echo $row['ProductTestID']?>">

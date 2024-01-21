@@ -37,12 +37,12 @@ include "header.php"
                 <?PHP
                         require "connection.php";
                         $memberID = $_GET['updid'];
-                        $update = "SELECT * FROM `user` WHERE `UserID`= $UserID";
+                        $update = "SELECT * FROM `user` WHERE `UserID`= $memberID";
                         $result = mysqli_query($conn,$update);
                         while ($row= mysqli_fetch_assoc($result)){
                         
                         ?>
-                <form class="form-horizontal" action="User-Action.php" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
                   <div class="card-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Select Role For User</label>
@@ -127,12 +127,13 @@ include "header.php"
                       
                           
                           
-                            $updateqry = "UPDATE `user` SET `UserName`='$name";
+                            $updateqry = "UPDATE `user` SET `UserName`='$name'";
+
 
                             echo
                             "<script>
                             alert('Update Complete');
-                            window.location.href='showmember.php';
+                            window.location.href='user-table.php.php';
                             </script>";
 
                     }

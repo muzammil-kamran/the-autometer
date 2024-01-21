@@ -72,11 +72,11 @@ include "header.php"
                             <td><?PHP echo $row['UserImage']?></td>
                             <td><?PHP echo $row['RoleID']?></td>
                             <td>
-                                <a href="update.php?updid=<?php echo $row['UserID']?>">
+                                <a href="user-update.php?updid=<?php echo $row['UserID']?>">
                                 <button type="button" class="tn btn-block btn-success btn-sm">Update</button>
                                 </a>
                                                             
-                                <a href="delete.php?dldid=<?php echo $row['UserID']?>">
+                                <a href="user_delete.php?dldid=<?php echo $row['UserID']?>">
                                 <button type="button" class="btn btn-block btn-danger btn-sm">Delet</button>
                     
                                 </a>

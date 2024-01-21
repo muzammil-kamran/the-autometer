@@ -1,31 +1,3 @@
-<?php
-include "Connection.php";
-session_start();
-
-// Check if the user is not logged in, redirect to login page
-if (!isset($_SESSION['userID'])) {
-    header("Location: login.php");
-    exit();
-}
-
-// Access user data from session
-$userID = $_SESSION['userID'];
-$userName = $_SESSION['userName'];
-$userImage = $_SESSION['userImage'];
-$roleID = $_SESSION['roleID'];
-$departmentID = $_SESSION['departmentID'];
-
-
-
-// Rest of your dashboard code here
-// You can use $userID, $userName, $userImage, $roleID, $departmentID as needed
-
-
-?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,35 +114,6 @@ $departmentID = $_SESSION['departmentID'];
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
       </li>
-      <!-- Sitting Dropdown Menu Start-->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-        <ion-icon name="settings"></ion-icon>
-                  <span class="badge badge-warning navbar-badge">1</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="Logout.php" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> Log Out
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-      <!-- Sitting Dropdown Menu End-->
-
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -228,7 +171,7 @@ $departmentID = $_SESSION['departmentID'];
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $_SESSION['userName'];?></a>
+          <a href="#" class="d-block">Alexander Pierce</a>
         </div>
       </div>
 
@@ -249,210 +192,60 @@ $departmentID = $_SESSION['departmentID'];
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <?php
-          if ($roleID == 1 && $departmentID == 1) {
-            ?>
-            <li class="nav-item">
-            <a href="../the autometer/user.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-              User
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../the autometer/User-add.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add New User</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../the autometer/User-table.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>users Information</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-
-            <?php
-        }
-        ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                product
+                Dashboard
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../the autometer/product-add.php" class="nav-link">
+                <a href="../../index.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add New Product</p>
+                  <p>Dashboard v1</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../the autometer/product-table.php" class="nav-link">
+                <a href="../../index2.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Product Information</p>
+                  <p>Dashboard v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../../index3.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dashboard v3</p>
                 </a>
               </li>
             </ul>
-          </li>
-        
-          
-         <?php
-          if ($roleID == 1) {
-            ?>
-            <li class="nav-item">
-            <a href="../the autometer/user.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-              Test Method
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../the autometer/Testing-method-add.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add New Test</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../the autometer/Testing-method-table.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Testing Method Information</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-
-            <?php
-        }
-        ?>
-        <li class="nav-item">
-        <a href="../the autometer/Testing.php" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-          Product Testing
-            <i class="right fas fa-angle-left"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="../the autometer/Product-testing-add.php" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Test  Product</p>
-            </a>
           </li>
           <li class="nav-item">
-            <a href="../the autometer/Product-testing-table.php" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Test Information</p>
+            <a href="../widgets.html" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Widgets
+                <span class="right badge badge-danger">New</span>
+              </p>
             </a>
           </li>
-        </ul>
-      </li>
-      <?php
-          if ($roleID == 1 && $departmentID == 1) {
-            ?>
-            <li class="nav-item">
-            <a href="../the autometer/Roles.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-copy"></i>
               <p>
-              Roles
-                <i class="right fas fa-angle-left"></i>
+                Layout Options
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../the autometer/Roles-add.php" class="nav-link">
+                <a href="../layout/top-nav.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add New Role</p>
+                  <p>Top Navigation</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="../the autometer/Role-table.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Roles Information</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <?php
-        }
-        ?>
-        <?php
-          if ($roleID == 1 && $departmentID == 1) {
-            ?>
-            <li class="nav-item">
-            <a href="../the autometer/Department.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-              Departments
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../the autometer/Department-add.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add New Department</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../the autometer/Department-table.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Department Information</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-
-            <?php
-        }
-        ?>
-        <?php
-          if ($roleID == 1 && $departmentID == 1) {
-            ?>
-            <li class="nav-item">
-            <a href="../the autometer/market.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-              Market
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../the autometer/market-add.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add New market</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../the autometer/market-table.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>market Information</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-
-            <?php
-        }
-        ?>
-       
-
-
               <li class="nav-item">
                 <a href="../layout/top-nav-sidebar.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -466,7 +259,7 @@ $departmentID = $_SESSION['departmentID'];
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../layout/fixed-sidebar.html" class="nav-link ">
+                <a href="../layout/fixed-sidebar.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Fixed Sidebar</p>
                 </a>

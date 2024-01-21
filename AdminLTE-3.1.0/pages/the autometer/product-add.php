@@ -1,7 +1,18 @@
 <?php
-include "header.php"
-
+include "header.php";
+include "Connection.php";
 ?>
+<?php
+// Assuming you have a database connection code here
+include "Connection.php";
+
+// Fetch departments from the database
+$departmentsQuery = "SELECT DepartmentsID, DepartmentsName FROM departments";
+$departmentsResult = $conn->query($departmentsQuery);
+
+// Check for departments and display the form
+if ($departmentsResult->num_rows > 0) {
+    ?>
 
 
 <!-- Content Wrapper. Contains page content -->
@@ -42,7 +53,21 @@ include "header.php"
 
             <div class="form-group">
               <label for="exampleInputPassword1">Discription</label>
-              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Product Discription" name="Pdisc">
+              <textarea class="form-control" name="Pdisc" rows="4" placeholder="Enter Product Discription" spellcheck="false" data-ms-editor="true"></textarea>
+            </div>
+            <div class="form-group">
+            <label for="exampleInputPassword1">Department For Test</label>
+            <?php
+            while ($row = $departmentsResult->fetch_assoc()) {
+              $departmentID = $row['DepartmentsID'];
+              $departmentName = $row['DepartmentsName'];
+              echo "<div class='custom-control custom-checkbox'>";
+              echo "<input class='custom-control-input' type='checkbox' id='departmentCheckbox$departmentID' name='selectedDepartments[]' value='$departmentID'>";
+              echo "<label for='departmentCheckbox$departmentID' class='custom-control-label'>$departmentName</label>";
+              echo "</div>";
+          }
+          ?>
+           
             </div>
             <label for="exampleInputFile">product image</label>
             <div class="input-group">
@@ -67,6 +92,9 @@ include "header.php"
             </div>  
                 </form>
             </div>
+            <?php
+              }
+            ?>
 
                </section>
 

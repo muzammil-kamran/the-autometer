@@ -6,9 +6,9 @@ if(isset($_POST['sub'])){
     
    
 
-    $qry= "INSERT INTO `testing`(`TestName`, `DepartmentID`) VALUES ('$TName','$Role')";
+    $insertqry= "INSERT INTO `testing`(`TestName`, `DepartmentID`) VALUES ('$TName','$Department')";
+    $result=mysqli_query($conn,$insertqry);
   
-    mysqli_query($conn,$qry);
 
 
 echo "

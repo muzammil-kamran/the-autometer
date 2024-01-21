@@ -17,7 +17,7 @@ include "header.php"
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-              <li class="breadcrumb-item active">Testing Form</li>
+              <li class="breadcrumb-item active">Testing Method Form</li>
             </ol>
           </div>
         </div>
@@ -30,7 +30,7 @@ include "header.php"
                       <!-- Default box -->
                   <div class="card card-primary">
                     <div class="card-header">
-                      <h3 class="card-title">TESTING FORM</h3>
+                      <h3 class="card-title">Testing Method FORM</h3>
                     </div>
                     <!-- /.card-header -->
                 <!-- form start -->
@@ -38,7 +38,6 @@ include "header.php"
                   <div class="card-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Select Department</label>
-
 
                       <select class="form-control" id="exampleInputEmail11" name="Department">
                             <option value="" disabled selected>Select Department</option> 
@@ -51,15 +50,21 @@ include "header.php"
                           if ($conn->connect_error) {
                               die("Connection failed: " . $conn->connect_error);
                           }
+                          
                         
-                          // Query to get options from database
-                          $sql = "SELECT  `DepartmentsName` FROM `departments`";
+                          
+                          
+                            $sql = $sql = "SELECT  `DepartmentsID`,`DepartmentsName` FROM `departments`
+                                    WHERE `DepartmentID` = $departmentID";
+                        
+                          
+                          $sql = "SELECT  `DepartmentsID`,`DepartmentsName` FROM `departments`";
                           $result = $conn->query($sql);
                         
                           // Generate dropdown options
                           if ($result->num_rows > 0) {
                               while ($row = $result->fetch_assoc()) {
-                                  $id = $row["id"];
+                                  $id = $row["DepartmentsID"];
                                   $optionName = $row["DepartmentsName"];
                                   echo "<option value='$id'>$optionName</option>";
                               }
@@ -70,7 +75,7 @@ include "header.php"
                           ?>
                           </select>
                     
-                    </div>
+
                     <div class="form-group">
                       <label for="exampleInputEmail1">Test Name</label>
                       <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Test Name" name="Tname">

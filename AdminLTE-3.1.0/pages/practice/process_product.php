@@ -1,24 +1,16 @@
 <?php
-include "connection.php";
+// Assuming you have a database connection code here
+include "Connection.php";
 
-if (isset($_POST['sub'])) {
-    $name = $_POST['PName'];
-    $disc = $_POST['Pdisc'];
-    $img = $_FILES['Pimg'];
-
-    $imagename = $img['name'];
-    $actualpath = $img['tmp_name'];
-    $mypath = "images/" . $imagename;
-
-    move_uploaded_file($actualpath, $mypath);
-
-    // Default status ID (change it to your desired default status)
-    $defaultStatusID = 1;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Validate and sanitize input
+    $productName = $_POST["productName"];
+    $productCode = $_POST["productCode"];
 
     // Check if any department is selected
     if (isset($_POST["selectedDepartments"]) && is_array($_POST["selectedDepartments"])) {
-        // Insert the product into the 'products' table with the specified status ID
-        $insertProductQuery = "INSERT INTO products (ProductName, ProductDiscription, ProductImage, statusID) VALUES ('$name', '$disc', '$mypath', $defaultStatusID)";
+        // Insert the product into the 'products' table
+        $insertProductQuery = "INSERT INTO products (ProductName, ProductCode) VALUES ('$productName', '$productCode')";
         if ($conn->query($insertProductQuery) === TRUE) {
             $productID = $conn->insert_id;
 
