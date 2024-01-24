@@ -2,8 +2,8 @@
 include "header.php"
 
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -39,17 +39,24 @@ include "header.php"
                 </div>
               </div>
               <!-- /.card-header -->
-            
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap">
                   <thead>
+                  <?PHP
+                        require "connection.php";
+                        $ProductID = $_GET['updid'];
+                        $update = "SELECT * FROM `producttesting` WHERE `ProductID`= $ProductID";
+                        $result = mysqli_query($conn,$update);
+                        while ($row= mysqli_fetch_assoc($result)){
+                        
+                        ?>
                     <tr>
-                      <th>Product ID</th>
-                      <th>Product Name</th>
-                      <th>Product Image</th>
-                      <th>Product Status</th>
+                        <th>ProductTestID</th>
+                      <th>TestID</th>
+                      <th>UserID</th>
+                      <th>Remarks</th>
+                      <th>Detail Remarks</th>
                       <th>Action</th>
-            
 
                     </tr>
                   </thead>
@@ -58,38 +65,33 @@ include "header.php"
                     <tr>
                     <?php
                                 require "connection.php";
-                                $qry ="SELECT products.ProductID, products.ProductName, products.ProductImage, product_status.Status
-                                FROM products
-                                JOIN product_status ON products.statusID = product_status.statusID";
+                                $qry =" SELECT * FROM `user`";
                                 $result = mysqli_query($conn,$qry);
                                 while($row = mysqli_fetch_assoc($result)){?>
 
 
-                            <td scope="row"><?PHP echo $row['ProductID']?>  </td>
-                            <td><?PHP echo $row['ProductName']?></td>
+                            <td scope="row"><?PHP echo $row['UserID']?>  </td>
+                            <td><?PHP echo $row['UserName']?></td>
+                            <td><?PHP echo $row['UserContact']?></td>
+                            <td><?PHP echo $row['UserEmail']?></td>
+                            <td><?PHP echo $row['UserPassword']?></td>
+                            <td><?PHP echo $row['UserImage']?></td>
+                            <td><?PHP echo $row['RoleID']?></td>
                             <td>
-                                <div class="widget-user-image" style="width: 50px; height: 50px; overflow: hidden; border-radius: 50%;">
-                                    <img src="<?php echo $row['ProductImage'] ?>" class="img-circle" alt="User Avatar" style="width: 100%; height: auto;">
-                                </div>
+                                <a href="user-update.php?updid=<?php echo $row['UserID']?>">
+                                <button type="button" class="tn btn-block btn-success btn-sm">Update</button>
+                                </a>
+                                                            
+                                <a href="user_delete.php?dldid=<?php echo $row['UserID']?>">
+                                <button type="button" class="btn btn-block btn-danger btn-sm">Delet</button>
+                    
+                                </a>
                             </td>
-
-                            
-                            <td>
-                              <?PHP echo $row['Status']?></td>
-                           
-                            <td>
-                                    <a href="result-update.php?updid=<?PHP echo $row['ProductID']?>">
-                                    <button type="button" class="btn btn-success btn-fw">Show Test</button>
-                                    </a>
-
-                                    
-
-                            </td>
-                          </tr>
-                        
+                          
+                          
                       
                     </tr>
-                    <?phP
+                    <?php
                                 }
                                 
                                 ?>
@@ -101,3 +103,7 @@ include "header.php"
             <!-- /.card -->
           </div>
         </div>
+        </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

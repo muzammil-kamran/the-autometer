@@ -65,11 +65,11 @@ include "header.php"
                             
                            
                             <td>
-                                    <a href="update.php?updid=<?PHP echo $row['MarketsID']?>">
+                                    <a href="market-update.php?updid=<?PHP echo $row['MarketsID']?>">
                                     <button type="button" class="btn btn-success btn-fw">Update</button>
                                     </a>
 
-                                    <a href="delete.php?dldid=<?PHP echo $row['MarketsID']?>">
+                                    <a href="market-delete.php?dldid=<?PHP echo $row['MarketsID']?>">
                                     <button type="button" class="btn btn-danger btn-fw">Delete</button>
                                     </a>
 

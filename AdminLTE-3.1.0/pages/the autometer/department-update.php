@@ -36,21 +36,21 @@ include "header.php"
                 <!-- form start -->
                 <?PHP
                         require "connection.php";
-                        $memberID = $_GET['updid'];
+                        $DepartmentsID = $_GET['updid'];
                         $update = "SELECT * FROM `departments` WHERE `DepartmentsID`= $DepartmentsID";
                         $result = mysqli_query($conn,$update);
                         while ($row= mysqli_fetch_assoc($result)){
                         
                         ?>
-                <form class="form-horizontal" action="Department-action.php" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
                   <div class="card-body">
                     <div class="form-group">
                       
 
 
                       <div class="form-group">
-                      <label for="exampleInputEmail1">Department Name</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" name="uname">
+                      <label for="exampleInputEmail1">Update Department Name</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" name="uname" value="<?php echo $row['DepartmentsName']?>">
                     </div>
                     
                     
@@ -61,26 +61,28 @@ include "header.php"
                         }
                       ?>
                   <?php
-                        if(isset($_POST['sub'])){
-                          $name = $_POST['uname'];
-                     
-                       
-                
-                          
-                            $updateqry = "UPDATE `departments` SET `DepartmentsName`='$name";
 
-                            echo
-                            "<script>
-                            alert('Update Complete');
-                            window.location.href='showmember.php';
-                            </script>";
+if(isset($_POST['sub'])){
+    $name = $_POST['uname'];
+    $DepartmentsID = $_GET['updid']; 
 
-                    }
-    
-    
-                    
-                    ?>
-     
+    // Update query
+    $updateqry = "UPDATE `departments` SET `DepartmentsName`='$name' WHERE `DepartmentsID`='$DepartmentsID'";
+
+    // Execute the update query
+    $result1 = mysqli_query($conn, $updateqry);
+
+    if($result1){
+        echo "<script>
+                alert('Update Complete');
+                window.location.href='department-table.php';
+              </script>";
+    } else {
+        echo "Error updating record: " . mysqli_error($conn);
+    }
+}
+?>
+
     </section>
   
     <!-- /.content -->

@@ -5,7 +5,7 @@ if(isset($_POST['sub'])){
     
    
 
-    $qry= "INSERT INTO `markets`(`MarketsName` ) VALUES ('$MName')";
+    $qry= "INSERT INTO `markets`(`MarketsName`) VALUES ('$MName')";
     
   
     mysqli_query($conn,$qry);
@@ -14,6 +14,7 @@ if(isset($_POST['sub'])){
 echo "
 <script>
 alert('Successfully Added');
+window.location.href='market-table.php';
 </script>";
 }
 ?>

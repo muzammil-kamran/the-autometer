@@ -12,6 +12,7 @@ if(isset($_POST['sub'])){
 echo "
 <script>
 alert('Successfully Added');
+window.location.href='department-table.php';
 </script>";
 }
 ?>

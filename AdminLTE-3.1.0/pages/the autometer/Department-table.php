@@ -63,11 +63,11 @@ include "header.php"
                             <td><?PHP echo $row['DepartmentsName']?></td>
                            
                             <td>
-                                    <a href="update.php?updid=<?PHP echo $row['DepartmentsID']?>">
+                                    <a href="department-update.php?updid=<?PHP echo $row['DepartmentsID']?>">
                                     <button type="button" class="btn btn-success btn-fw">Update</button>
                                     </a>
 
-                                    <a href="delete.php?dldid=<?PHP echo $row['DepartmentsID']?>">
+                                    <a href="department-delete.php?dldid=<?PHP echo $row['DepartmentsID']?>">
                                     <button type="button" class="btn btn-danger btn-fw">Delete</button>
                                     </a>
 
